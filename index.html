@@ -1189,18 +1189,80 @@ function todayJST() {
   return new Date(d.getTime() + 9*60*60*1000).toISOString().slice(0,10);
 }
 
+const LS_ENTRIES  = 'kobutsu_entries';
+const LS_PARTNERS = 'kobutsu_partners';
+const LS_COUNTERS = 'kobutsu_counters';
+
 function loadAll() {
-  // 既存データ（すべて受入）に inId を付与
-  entries = INITIAL_DATA.map((e, i) => ({ ...e, inId: e.inId || (i + 1), outId: e.outId || undefined }));
-  const inIds  = entries.filter(e => e.kubun.startsWith('受入')).map(e => e.inId  || 0);
-  const outIds = entries.filter(e => e.kubun.startsWith('払出')).map(e => e.outId || 0);
-  nextInId  = (inIds.length  ? Math.max(...inIds)  : 0) + 1;
-  nextOutId = (outIds.length ? Math.max(...outIds) : 0) + 1;
-  partners = DEFAULT_PARTNERS.map(p => ({ ...p }));
+  // entries: localStorageがあればそちら優先、なければINITIAL_DATAで初期化
+  const saved = localStorage.getItem(LS_ENTRIES);
+  if (saved) {
+    try {
+      entries = JSON.parse(saved);
+      // 旧データ移行: inId/outId が未設定のエントリを補正
+      let maxIn = 0, maxOut = 0;
+      entries.forEach(e => {
+        if (e.inId)  maxIn  = Math.max(maxIn,  e.inId);
+        if (e.outId) maxOut = Math.max(maxOut, e.outId);
+      });
+      entries.forEach(e => {
+        if (e.kubun && e.kubun.startsWith('受入') && !e.inId) {
+          e.inId = ++maxIn;
+        }
+        if (e.kubun && e.kubun.startsWith('払出') && !e.outId) {
+          e.outId = ++maxOut;
+        }
+      });
+      // INITIAL_DATAにあってlocalStorageにないエントリを補完
+      const savedIds = new Set(entries.map(e => e.id));
+      INITIAL_DATA.forEach((src, i) => {
+        if (!savedIds.has(src.id)) {
+          entries.push({ ...src, inId: src.inId || (i + 1) });
+        }
+      });
+      entries.sort((a, b) => a.id - b.id);
+    } catch(e) {
+      entries = INITIAL_DATA.map((e, i) => ({ ...e, inId: e.inId || (i + 1) }));
+    }
+  } else {
+    entries = INITIAL_DATA.map((e, i) => ({ ...e, inId: e.inId || (i + 1) }));
+  }
+
+  // partners: localStorageがあればそちら優先
+  const savedP = localStorage.getItem(LS_PARTNERS);
+  if (savedP) {
+    try { partners = JSON.parse(savedP); } catch(e) { partners = DEFAULT_PARTNERS.map(p => ({...p})); }
+  } else {
+    partners = DEFAULT_PARTNERS.map(p => ({...p}));
+  }
+
+  // カウンター復元
+  const savedC = localStorage.getItem(LS_COUNTERS);
+  if (savedC) {
+    try {
+      const c = JSON.parse(savedC);
+      nextInId  = c.nextInId  || 1;
+      nextOutId = c.nextOutId || 1;
+    } catch(e) { recalcCounters(); }
+  } else {
+    recalcCounters();
+  }
 }
 
-function saveEntries() { /* localStorage不使用 */ }
-function savePartners() { /* localStorage不使用 */ }
+function recalcCounters() {
+  const inIds  = entries.filter(e => e.kubun && e.kubun.startsWith('受入')).map(e => e.inId  || 0);
+  const outIds = entries.filter(e => e.kubun && e.kubun.startsWith('払出')).map(e => e.outId || 0);
+  nextInId  = (inIds.length  ? Math.max(...inIds)  : 0) + 1;
+  nextOutId = (outIds.length ? Math.max(...outIds) : 0) + 1;
+}
+
+function saveEntries() {
+  localStorage.setItem(LS_ENTRIES, JSON.stringify(entries));
+  localStorage.setItem(LS_COUNTERS, JSON.stringify({ nextInId, nextOutId }));
+}
+function savePartners() {
+  localStorage.setItem(LS_PARTNERS, JSON.stringify(partners));
+}
 
 // ===== タブ =====
 function switchTab(name) {
@@ -1411,15 +1473,23 @@ function renderList() {
   if (!filtered.length) { container.innerHTML = ''; empty.style.display = 'block'; return; }
   empty.style.display = 'none';
 
+  // 払出済みの受入IDセットを作成
+  const soldInIds = new Set(
+    entries.filter(e => e.kubun.startsWith('払出') && e.soldEntryId).map(e => e.soldEntryId)
+  );
+
   container.innerHTML = filtered.map(e => {
     const isIn  = e.kubun.startsWith('受入');
+    const isSold = isIn && soldInIds.has(e.id);
     const badge = isIn
       ? `<span class="badge badge-in">${esc(e.kubun)}</span>`
       : `<span class="badge badge-out">${esc(e.kubun)}</span>`;
     const price = e.price ? Number(e.price).toLocaleString()+'円' : '—';
-    const borderStyle = isIn
-      ? 'border-left: 3px solid var(--success);'
-      : 'border-left: 3px solid #e08080; background: rgba(224,80,80,0.04);';
+    const borderStyle = isSold
+      ? 'border-left: 3px solid var(--muted); opacity: 0.45;'
+      : isIn
+        ? 'border-left: 3px solid var(--success);'
+        : 'border-left: 3px solid #e08080; background: rgba(224,80,80,0.04);';
     return `<div class="entry-card" style="${borderStyle}">
       <div class="entry-header">
         <span class="entry-no">${noLabel(e)} · ${e.date}</span>${badge}
@@ -1446,6 +1516,7 @@ function deleteEntry(id) {
   const label = e ? noLabel(e) : 'No.'+id;
   if (!confirm(label + ' を削除しますか？')) return;
   entries = entries.filter(x => x.id !== id);
+  recalcCounters();
   saveEntries(); renderList();
 }
 
@@ -1453,6 +1524,8 @@ function clearAllEntries() {
   if (!entries.length) { alert('データがありません'); return; }
   if (!confirm('全'+entries.length+'件を削除しますか？\nCSV出力済みですか？')) return;
   entries = []; nextInId = 1; nextOutId = 1;
+  localStorage.removeItem(LS_ENTRIES);
+  localStorage.removeItem(LS_COUNTERS);
   saveEntries(); renderList();
 }
 
