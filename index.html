@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/hidet/Downloads/index_15.html -->
+<!-- saved from url=(0048)https://motonariissin-eng.github.io/kobutu-bike/ -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -152,7 +152,7 @@
   <div class="card">
     <div class="card-title">取引相手</div>
     <div class="partner-hint" id="partnerHint" style="display: none;">✅ 業者情報を反映しました</div>
-    <div id="partnerList" class="partner-list"><button class="partner-btn" data-pidx="0">株式会社 モトレボ 渡部伸正</button><button class="partner-btn" data-pidx="1">A's Wing 河合 善昭</button><button class="partner-btn" data-pidx="2">山崎 紅梅</button><button class="partner-btn" data-pidx="3">有限会社 川田商事</button></div>
+    <div id="partnerList" class="partner-list"><button class="partner-btn" data-pidx="0">株式会社 モトレボ 渡部伸正</button><button class="partner-btn" data-pidx="1">A's Wing 河合 善昭</button><button class="partner-btn active" data-pidx="2">山崎 紅梅</button><button class="partner-btn" data-pidx="3">有限会社 川田商事</button></div>
     <div class="btn-row" style="margin-bottom:14px">
       <button class="btn btn-outline btn-sm" onclick="savePartner()">⭐ この業者を登録</button>
       <button class="btn btn-danger" id="deletePartnerBtn" style="display: inline-block;" onclick="deleteCurrentPartner()">削除</button>
@@ -209,108 +209,13 @@
       <option value="受入">受入</option>
       <option value="払出">払出</option>
     </select>
-    <select id="filterPartner" onchange="renderList()"><option value="">すべての相手</option><option value="A&#39;s Wing 河合 善昭">A's Wing 河合 善昭</option><option value="ヤフオク">ヤフオク</option><option value="山崎 紅梅">山崎 紅梅</option><option value="有限会社 川田商事">有限会社 川田商事</option><option value="株式会社 モトレボ 渡部伸正">株式会社 モトレボ 渡部伸正</option></select>
+    <select id="filterPartner" onchange="renderList()"><option value="">すべての相手</option><option value="A&#39;s Wing 河合 善昭">A's Wing 河合 善昭</option><option value="山崎 紅梅">山崎 紅梅</option><option value="有限会社 川田商事">有限会社 川田商事</option><option value="株式会社 モトレボ 渡部伸正">株式会社 モトレボ 渡部伸正</option></select>
   </div>
-  <div class="count" id="countBadge">49件</div>
+  <div class="count" id="countBadge">43件</div>
   <div id="emptyState" class="empty" style="display:none">📭 該当するデータがありません</div>
-  <div id="listContainer"><div class="entry-card" style="border-left: 3px solid var(--success);">
+  <div id="listContainer"><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-048 · 2026-03-05</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-マジェスティ125
-LPRKE03001A600183</div>
-      <div class="entry-price">30,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり　NO.66　メルカリ3/25
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(48)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(48)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-047 · 2026-03-05</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-マジェスティ125
-LPRSE27109A160821</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり　NO.59　メルカリ3/15
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(47)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(47)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-046 · 2026-03-05</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-ZOOMER
-AF58-1018787</div>
-      <div class="entry-price">55,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり　NO.56　メルカリ3/10
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(46)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(46)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-045 · 2026-03-05</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ110
-JA10-1007683</div>
-      <div class="entry-price">135,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり　NO.63　メルカリ3/24
-        <br>🖊 訂正済 2026/6/1 15:55:15
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(45)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(45)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-044 · 2026-03-02</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZIKI
-スカイウェイブ250
-CJ41A-106446</div>
-      <div class="entry-price">12,000円</div>
-      <div class="entry-meta">
-        👤 A's Wing 河合 善昭（49歳）　埼玉県入間市豊岡５丁目３番１６号 501　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 領収書あり　在庫中
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(44)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(44)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-043 · 2026-03-02</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0043 · 2026-03-02</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">KYMCO
@@ -327,9 +232,9 @@ RFBS7000023200265</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(43)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(43)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-042 · 2026-03-02</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0042 · 2026-03-02</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">KIMCO
@@ -346,9 +251,9 @@ RFBSH25EB8R150352</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(42)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(42)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-041 · 2026-03-02</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0041 · 2026-03-02</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">SUZUKI
@@ -365,9 +270,9 @@ CF4EA-144592</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(41)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(41)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-040 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0040 · 2026-02-25</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -384,9 +289,9 @@ JA44-1003127</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(40)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(40)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-039 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0039 · 2026-02-25</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">YAMAHA
@@ -403,9 +308,9 @@ SA31J-105511</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(39)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(39)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-038 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0038 · 2026-02-25</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -422,9 +327,9 @@ AF34-3064564</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(38)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(38)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-037 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0037 · 2026-02-25</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -441,9 +346,9 @@ HA02-1902001</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(37)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(37)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-036 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0036 · 2026-02-25</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">SUZUKI
@@ -460,9 +365,9 @@ CA1PA-322065</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(36)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(36)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-035 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0035 · 2026-02-25</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -479,9 +384,9 @@ AF34-1207004</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(35)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(35)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-034 · 2026-02-23</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0034 · 2026-02-23</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">YAMAHA
@@ -498,9 +403,9 @@ LPRSE27109A163395</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(34)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(34)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-033 · 2026-02-23</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0033 · 2026-02-23</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">YAMAHA
@@ -517,9 +422,9 @@ LPRSE27109A163395</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(33)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(33)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-032 · 2026-02-21</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0032 · 2026-02-21</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -536,9 +441,9 @@ AF56-1101189</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(32)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(32)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-031 · 2026-02-21</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0031 · 2026-02-21</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">YAMAHA
@@ -555,9 +460,9 @@ SA10J-100435</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(31)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(31)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-030 · 2026-02-21</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0030 · 2026-02-21</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -574,9 +479,9 @@ AF68-1347604</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(30)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(30)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-029 · 2026-02-20</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0029 · 2026-02-20</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">YAMAHA
@@ -593,9 +498,9 @@ SB01J-12795</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(29)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(29)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-028 · 2026-02-17</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0028 · 2026-02-17</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">SUZUKI
@@ -612,9 +517,9 @@ CA1PA-321280</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(28)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(28)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-027 · 2026-02-17</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0027 · 2026-02-17</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">YAMAHA
@@ -631,9 +536,9 @@ SA10J-088136</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(27)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(27)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-026 · 2026-02-03</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0026 · 2026-02-03</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">KAWASAKI
@@ -650,9 +555,9 @@ ZR250A-067350</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(26)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(26)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-025 · 2026-02-03</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0025 · 2026-02-03</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -669,9 +574,9 @@ MF08-1009512</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(25)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(25)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-024 · 2026-01-31</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0024 · 2026-01-31</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">SUZUKI
@@ -688,9 +593,9 @@ CA4AA-107317</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(24)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(24)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-023 · 2026-01-31</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0023 · 2026-01-31</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -707,9 +612,9 @@ AF61-1527823</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(23)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(23)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-022 · 2026-01-31</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0022 · 2026-01-31</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -726,9 +631,9 @@ AF55-1035175</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(22)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(22)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-021 · 2026-01-31</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0021 · 2026-01-31</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">YAMAHA
@@ -745,9 +650,9 @@ SA10J-095636</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(21)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(21)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-020 · 2026-01-30</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0020 · 2026-01-30</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -764,9 +669,9 @@ MF06-1206373</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(20)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(20)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-019 · 2026-01-30</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0019 · 2026-01-30</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">YAMAHA
@@ -783,9 +688,9 @@ TW200
         <button class="btn btn-outline btn-sm" onclick="editEntry(19)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(19)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-018 · 2026-01-27</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0018 · 2026-01-27</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">YAMAHA
@@ -802,9 +707,9 @@ SE44J-200573</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(18)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(18)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-017 · 2026-01-27</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0017 · 2026-01-27</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -821,9 +726,9 @@ JA45-1107250</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(17)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(17)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-016 · 2026-01-24</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0016 · 2026-01-24</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -840,9 +745,9 @@ MF02-2307057</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(16)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(16)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-015 · 2026-01-23</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0015 · 2026-01-23</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -859,9 +764,9 @@ AA01-1760975</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(15)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(15)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-014 · 2026-01-23</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0014 · 2026-01-23</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -878,9 +783,9 @@ AF56-1206411</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(14)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(14)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-013 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0013 · 2026-01-22</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -897,9 +802,9 @@ HA02-2520567</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(13)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(13)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-012 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0012 · 2026-01-22</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">SUZIKI
@@ -916,9 +821,9 @@ BA42A-106384</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(12)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(12)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-011 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0011 · 2026-01-22</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -935,9 +840,9 @@ AF34-3485249</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(11)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(11)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-010 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0010 · 2026-01-22</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -954,9 +859,9 @@ ME4JF653JH7011290</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(10)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(10)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-009 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0009 · 2026-01-22</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -973,9 +878,9 @@ JA07-3002778</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(9)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(9)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-008 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0008 · 2026-01-22</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -992,9 +897,9 @@ AF34-3469086</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(8)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(8)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-007 · 2026-01-18</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0007 · 2026-01-18</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">KAWASAKI
@@ -1011,9 +916,9 @@ KL250G-009085</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(7)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(7)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-006 · 2026-01-18</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0006 · 2026-01-18</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -1030,9 +935,9 @@ AF17-1435351</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(6)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(6)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-005 · 2026-01-18</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0005 · 2026-01-18</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">KTM
@@ -1049,9 +954,9 @@ VBKJUC401EC015907</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(5)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(5)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-004 · 2026-01-12</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0004 · 2026-01-12</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">SUZUKI
@@ -1068,9 +973,9 @@ CA44A-116012</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(4)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(4)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-003 · 2026-01-09</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0003 · 2026-01-09</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">SUZUKI
@@ -1087,28 +992,9 @@ LC6DS11AZ01102498</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(3)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(3)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid #e08080; background: rgba(224,80,80,0.04);">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">払出-002 · 2026-05-31</span><span class="badge badge-out">払出（売却）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KAWASAKI
-KZ650
-KZ650-027431</div>
-      <div class="entry-price">951,000円</div>
-      <div class="entry-meta">
-        👤 ヤフオク　<br>
-        🪪 運転免許証
-        <br>📝 受入-001 KAWASAKI
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(2)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(2)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-002 · 2026-01-09</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0002 · 2026-01-09</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">HONDA
@@ -1125,9 +1011,9 @@ JA44-1002305</div>
         <button class="btn btn-outline btn-sm" onclick="editEntry(2)">✏ 訂正</button>
         <button class="btn btn-danger" onclick="deleteEntry(2)">削除</button>
       </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--muted); opacity: 0.45;">
+    </div><div class="entry-card">
       <div class="entry-header">
-        <span class="entry-no">受入-001 · 2026-01-05</span><span class="badge badge-in">受入（買受）</span>
+        <span class="entry-no">No.0001 · 2026-01-05</span><span class="badge badge-in">受入</span>
       </div>
       <div class="entry-category">自動二輪車 × 1</div>
       <div class="entry-feature">KAWASAKI
@@ -1149,11 +1035,7 @@ KZ650-027431</div>
 
 <!-- 在庫管理 -->
 <div id="tab-inv" class="panel">
-  <div id="inv-summary" class="inv-summary">
-    <div class="inv-kpi"><div class="kpi-val">47</div><div class="kpi-label">在庫台数</div></div>
-    <div class="inv-kpi"><div class="kpi-val">1</div><div class="kpi-label">払出済</div></div>
-    <div class="inv-kpi"><div class="kpi-val" style="font-size:16px">2,831,000円</div><div class="kpi-label">在庫仕入額合計</div></div>
-  </div>
+  <div id="inv-summary" class="inv-summary"></div>
   <div class="inv-filter-row">
     <select id="invStatus" onchange="renderInventory()">
       <option value="in">在庫中のみ</option>
@@ -1162,667 +1044,9 @@ KZ650-027431</div>
     </select>
     <input type="text" id="invSearch" placeholder="🔍 車体番号・車種で検索" oninput="renderInventory()">
   </div>
-  <div class="count" id="invCount">47件</div>
+  <div class="count" id="invCount"></div>
   <div id="invEmpty" class="empty" style="display:none">📭 該当データなし</div>
-  <div id="invContainer"><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-048 · 2026-03-05</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-マジェスティ125
-LPRKE03001A600183</div>
-      <div class="entry-price">30,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(48)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(48)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-047 · 2026-03-05</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-マジェスティ125
-LPRSE27109A160821</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(47)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(47)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-046 · 2026-03-05</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-ZOOMER
-AF58-1018787</div>
-      <div class="entry-price">55,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(46)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(46)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-045 · 2026-03-05</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ110
-JA10-1007683</div>
-      <div class="entry-price">135,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(45)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(45)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-044 · 2026-03-02</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZIKI
-スカイウェイブ250
-CJ41A-106446</div>
-      <div class="entry-price">12,000円</div>
-      <div class="entry-meta">👤 A's Wing 河合 善昭</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(44)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(44)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-043 · 2026-03-02</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KYMCO
-B＆W250
-RFBS7000023200265</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">👤 A's Wing 河合 善昭</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(43)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(43)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-042 · 2026-03-02</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KIMCO
-DINK125
-RFBSH25EB8R150352</div>
-      <div class="entry-price">13,000円</div>
-      <div class="entry-meta">👤 A's Wing 河合 善昭</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(42)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(42)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-041 · 2026-03-02</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-アドレスV125
-CF4EA-144592</div>
-      <div class="entry-price">55,000円</div>
-      <div class="entry-meta">👤 A's Wing 河合 善昭</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(41)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(41)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-040 · 2026-02-25</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ110
-JA44-1003127</div>
-      <div class="entry-price">150,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(40)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(40)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-039 · 2026-02-25</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-VOX
-SA31J-105511</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(39)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(39)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-038 · 2026-02-25</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF34-3064564</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(38)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(38)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-037 · 2026-02-25</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ90
-HA02-1902001</div>
-      <div class="entry-price">70,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(37)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(37)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-036 · 2026-02-25</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-レッツ2
-CA1PA-322065</div>
-      <div class="entry-price">15,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(36)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(36)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-035 · 2026-02-25</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF34-1207004</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(35)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(35)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-034 · 2026-02-23</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-マジェスティ125
-LPRSE27109A163395</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(34)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(34)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-033 · 2026-02-23</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-マジェスティ125
-5CA-900666</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(33)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(33)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-032 · 2026-02-21</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF56-1101189</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">👤 有限会社 川田商事</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(32)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(32)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-031 · 2026-02-21</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-ビーノ
-SA10J-100435</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">👤 有限会社 川田商事</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(31)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(31)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-030 · 2026-02-21</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF68-1347604</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">👤 有限会社 川田商事</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(30)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(30)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-029 · 2026-02-20</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-グランドアクシス
-SB01J-12795</div>
-      <div class="entry-price">43,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(29)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(29)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-028 · 2026-02-17</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-レッツ
-CA1PA-321280</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(28)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(28)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-027 · 2026-02-17</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-ビーノ
-SA10J-088136</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(27)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(27)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-026 · 2026-02-03</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KAWASAKI
-バリオス
-ZR250A-067350</div>
-      <div class="entry-price">200,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(26)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(26)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-025 · 2026-02-03</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-フォルツァ
-MF08-1009512</div>
-      <div class="entry-price">55,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(25)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(25)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-024 · 2026-01-31</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-レッツ
-CA4AA-107317</div>
-      <div class="entry-price">25,000円</div>
-      <div class="entry-meta">👤 有限会社 川田商事</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(24)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(24)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-023 · 2026-01-31</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-TODAY
-AF61-1527823</div>
-      <div class="entry-price">23,000円</div>
-      <div class="entry-meta">👤 有限会社 川田商事</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(23)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(23)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-022 · 2026-01-31</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-クレアスクーピー
-AF55-1035175</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">👤 有限会社 川田商事</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(22)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(22)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-021 · 2026-01-31</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-ビーノ
-SA10J-095636</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">👤 有限会社 川田商事</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(21)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(21)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-020 · 2026-01-30</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-フォルツァ
-MF06-1206373</div>
-      <div class="entry-price">60,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(20)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(20)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-019 · 2026-01-30</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-TW200
-2JL-063963</div>
-      <div class="entry-price">120,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(19)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(19)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-018 · 2026-01-27</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-シグナスX
-SE44J-200573</div>
-      <div class="entry-price">55,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(18)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(18)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-017 · 2026-01-27</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-クロスカブ
-JA45-1107250</div>
-      <div class="entry-price">190,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(17)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(17)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-016 · 2026-01-24</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-フュージョン
-MF02-2307057</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(16)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(16)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-015 · 2026-01-23</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブカスタム50
-AA01-1760975</div>
-      <div class="entry-price">60,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(15)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(15)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-014 · 2026-01-23</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-ZOOMER
-AF56-1206411</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(14)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(14)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-013 · 2026-01-22</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ90
-HA02-2520567</div>
-      <div class="entry-price">70,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(13)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(13)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-012 · 2026-01-22</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZIKI
-バーディー50
-BA42A-106384</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(12)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(12)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-011 · 2026-01-22</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF34-3485249</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(11)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(11)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-010 · 2026-01-22</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-NAVI100
-ME4JF653JH7011290</div>
-      <div class="entry-price">80,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(10)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(10)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-009 · 2026-01-22</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブプロ110
-JA07-3002778</div>
-      <div class="entry-price">70,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(9)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(9)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-008 · 2026-01-22</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF34-3469086</div>
-      <div class="entry-price">17,000円</div>
-      <div class="entry-meta">👤 山崎 紅梅</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(8)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(8)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-007 · 2026-01-18</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KAWASAKI
-スーパーシェルパ
-KL250G-009085</div>
-      <div class="entry-price">150,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(7)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(7)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-006 · 2026-01-18</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-パル
-AF17-1435351</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(6)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(6)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-005 · 2026-01-18</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KTM
-DUKE200
-VBKJUC401EC015907</div>
-      <div class="entry-price">85,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(5)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(5)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-004 · 2026-01-12</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-アドレスV50
-CA44A-116012</div>
-      <div class="entry-price">23,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(4)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(4)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-003 · 2026-01-09</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-Vストローム
-LC6DS11AZ01102498</div>
-      <div class="entry-price">220,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(3)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(3)">✏ 訂正</button>
-      </div>
-    </div><div class="inv-card inv-status-in">
-      <div class="inv-header">
-        <span class="entry-no">受入-002 · 2026-01-09</span><span class="badge-stock">在庫中</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ110
-JA44-1002305</div>
-      <div class="entry-price">155,000円</div>
-      <div class="entry-meta">👤 株式会社 モトレボ 渡部伸正</div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="startSellFromInv(2)">📤 払出登録</button>
-        <button class="btn btn-outline btn-sm" onclick="editEntry(2)">✏ 訂正</button>
-      </div>
-    </div></div>
+  <div id="invContainer"></div>
 </div>
 
 <!-- データ管理 -->
@@ -1887,19 +1111,19 @@ JA44-1002305</div>
 
 <!-- ボトムタブ -->
 <div class="bottom-tab">
-  <button class="tab-btn active" id="tbtn-entry" onclick="switchTab(&#39;entry&#39;)">
+  <button class="tab-btn active" id="tbtn-entry" onclick="switchTab('entry')">
     <span class="icon">✏️</span>新規登録
   </button>
-  <button class="tab-btn" id="tbtn-list" onclick="switchTab(&#39;list&#39;)">
+  <button class="tab-btn" id="tbtn-list" onclick="switchTab('list')">
     <span class="icon">📋</span>台帳一覧
   </button>
-  <button class="tab-btn" id="tbtn-inv" onclick="switchTab(&#39;inv&#39;)">
+  <button class="tab-btn" id="tbtn-inv" onclick="switchTab('inv')">
     <span class="icon">📦</span>在庫管理
   </button>
-  <button class="tab-btn" id="tbtn-data" onclick="switchTab(&#39;data&#39;)">
+  <button class="tab-btn" id="tbtn-data" onclick="switchTab('data')">
     <span class="icon">💾</span>データ
   </button>
-  <button class="tab-btn" id="tbtn-guide" onclick="switchTab(&#39;guide&#39;)">
+  <button class="tab-btn" id="tbtn-guide" onclick="switchTab('guide')">
     <span class="icon">📖</span>記載要件
   </button>
 </div>
