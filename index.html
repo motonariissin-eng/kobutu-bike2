@@ -1754,7 +1754,7 @@ function startSellFromInv(uid) {
 
 // ===== Google Apps Script 連携 =====
 // ▼▼▼ ここにデプロイしたWebアプリのURLを貼ってください ▼▼▼
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzqhcGlT7tdHbXbMy5qNJsNQ5rcHHyPXkgZNJibU3uvhE8-uvmVd_ZK7uSZ9ljdnuGk/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzBcjqy1dh8kotuCBw20gYofXsruIAupvpd89-_byGzZBOQwkS11-T6Sv60o4qdPqk-/exec';
 // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
 async function syncToSheet() {
@@ -1766,15 +1766,21 @@ async function syncToSheet() {
   btn.disabled = true;
   btn.textContent = '⏳ 送信中…';
   try {
-    const payload = { action: 'write', entries, partners };
-    const resp = await fetch(GAS_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(payload)
+    const payload = { entries, partners };
+    const encoded = encodeURIComponent(JSON.stringify(payload));
+    const url = GAS_URL + '?action=write&data=' + encoded;
+    const resp = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
     });
-    // no-corsでは応答本文が読めないため、送信完了とみなす
-    alert('✅ スプレッドシートに送信しました。\nシートを開いて反映を確認してください。');
+    if (!resp.ok) throw new Error('HTTPエラー: ' + resp.status);
+    const result = await resp.json();
+    if (result.status === 'ok') {
+      alert('✅ スプレッドシートに送信しました。\nシートを開いて反映を確認してください。');
+    } else {
+      throw new Error(result.message || '不明なエラー');
+    }
   } catch(e) {
     alert('❌ 送信エラー：' + e.message);
   }
