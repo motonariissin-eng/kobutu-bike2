@@ -1184,7 +1184,9 @@ const DEFAULT_PARTNERS = [
   {name:'有限会社 川田商事', age:'', address:'埼玉県熊谷市日向250番地', job:'古物商', idMethod:'運転免許証', idNo:''},
 ];
 
-let entries = [], nextInId = 1, nextOutId = 1, partners = [], activePartner = null, editingId = null;
+let entries = [], nextInId = 1, nextOutId = 1, nextUid = 1, partners = [], activePartner = null, editingId = null;
+
+function genUid() { return nextUid++; }
 
 function noLabel(e) {
   const isIn = e.kubun && e.kubun.startsWith('受入');
@@ -1235,6 +1237,12 @@ function loadAll() {
   } else {
     entries = INITIAL_DATA.map((e, i) => ({ ...e, inId: e.inId || (i + 1) }));
   }
+
+  // uid がないエントリに一意IDを付与（旧データ移行）
+  let maxUid = 0;
+  entries.forEach(e => { if (e.uid) maxUid = Math.max(maxUid, e.uid); });
+  entries.forEach(e => { if (!e.uid) { e.uid = ++maxUid; } });
+  nextUid = maxUid + 1;
 
   // partners: localStorageがあればそちら優先
   const savedP = localStorage.getItem(LS_PARTNERS);
@@ -1365,10 +1373,10 @@ function deleteCurrentPartner() {
 }
 
 // ===== フォーム操作 =====
-function editEntry(id) {
-  const e = entries.find(x => x.id === id);
+function editEntry(uid) {
+  const e = entries.find(x => x.uid === uid);
   if (!e) return;
-  editingId = id;
+  editingId = uid;
   document.getElementById('f_date').value       = e.date     || '';
   document.getElementById('f_kubun').value      = e.kubun    || '受入（買受）';
   document.getElementById('f_category').value   = e.category || '自動二輪車';
@@ -1420,16 +1428,18 @@ function saveEntry() {
   };
 
   if (editingId !== null) {
-    const idx = entries.findIndex(x => x.id === editingId);
+    const idx = entries.findIndex(x => x.uid === editingId);
     if (idx < 0) { alert('対象データが見つかりません'); return; }
-    const entry = { id: entries[idx].id, inId: entries[idx].inId, outId: entries[idx].outId, ...base, createdAt: entries[idx].createdAt, updatedAt: new Date().toLocaleString('ja-JP') };
+    const entry = { uid: entries[idx].uid, id: entries[idx].id, inId: entries[idx].inId, outId: entries[idx].outId, ...base, createdAt: entries[idx].createdAt, updatedAt: new Date().toLocaleString('ja-JP') };
     entries[idx] = entry;
     saveEntries(); editingId = null;
     clearForm(); switchTab('list');
     alert('✅ ' + noLabel(entry) + ' を上書き保存しました');
   } else {
     const isIn = base.kubun.startsWith('受入');
+    const uid = genUid();
     const entry = {
+      uid,
       id: isIn ? nextInId : nextOutId,
       inId:  isIn ? nextInId++  : undefined,
       outId: isIn ? undefined   : nextOutId++,
@@ -1488,7 +1498,7 @@ function renderList() {
 
   container.innerHTML = filtered.map(e => {
     const isIn  = e.kubun.startsWith('受入');
-    const isSold = isIn && soldInIds.has(e.id);
+    const isSold = isIn && soldInIds.has(e.uid);
     const badge = isIn
       ? `<span class="badge badge-in">${esc(e.kubun)}</span>`
       : `<span class="badge badge-out">${esc(e.kubun)}</span>`;
@@ -1512,18 +1522,18 @@ function renderList() {
         ${e.updatedAt ? '<br>🖊 訂正済 '+esc(e.updatedAt) : ''}
       </div>
       <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(${e.id})">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(${e.id})">削除</button>
+        <button class="btn btn-outline btn-sm" onclick="editEntry(${e.uid})">✏ 訂正</button>
+        <button class="btn btn-danger" onclick="deleteEntry(${e.uid})">削除</button>
       </div>
     </div>`;
   }).join('');
 }
 
-function deleteEntry(id) {
-  const e = entries.find(x => x.id === id);
-  const label = e ? noLabel(e) : 'No.'+id;
+function deleteEntry(uid) {
+  const e = entries.find(x => x.uid === uid);
+  const label = e ? noLabel(e) : 'uid:'+uid;
   if (!confirm(label + ' を削除しますか？')) return;
-  entries = entries.filter(x => x.id !== id);
+  entries = entries.filter(x => x.uid !== uid);
   recalcCounters();
   saveEntries(); renderList();
 }
@@ -1664,8 +1674,8 @@ function getStockEntries() {
   const soldIds = new Set(outEntries.filter(e => e.soldEntryId).map(e => e.soldEntryId));
   return inEntries.map(e => ({
     ...e,
-    isSold: soldIds.has(e.id),
-    outEntry: outEntries.find(o => o.soldEntryId === e.id) || null,
+    isSold: soldIds.has(e.uid),
+    outEntry: outEntries.find(o => o.soldEntryId === e.uid) || null,
   }));
 }
 
@@ -1706,7 +1716,7 @@ function renderInventory() {
       ? `<div style="font-size:11px;color:#e08080;margin-top:6px">📤 払出：${esc(e.outEntry.date)} ${esc(e.outEntry.name)}${e.outEntry.price ? ' / '+Number(e.outEntry.price).toLocaleString()+'円' : ''}</div>`
       : '';
     const sellBtn = !e.isSold
-      ? `<button class="btn btn-outline btn-sm" onclick="startSellFromInv(${e.id})">📤 払出登録</button>`
+      ? `<button class="btn btn-outline btn-sm" onclick="startSellFromInv(${e.uid})">📤 払出登録</button>`
       : '';
     return `<div class="${cardClass}">
       <div class="inv-header">
@@ -1718,14 +1728,14 @@ function renderInventory() {
       <div class="entry-meta">👤 ${esc(e.name)}${outInfo}</div>
       <div style="margin-top:10px;display:flex;gap:8px">
         ${sellBtn}
-        <button class="btn btn-outline btn-sm" onclick="editEntry(${e.id})">✏ 訂正</button>
+        <button class="btn btn-outline btn-sm" onclick="editEntry(${e.uid})">✏ 訂正</button>
       </div>
     </div>`;
   }).join('');
 }
 
-function startSellFromInv(entryId) {
-  const src = entries.find(e => e.id === entryId);
+function startSellFromInv(uid) {
+  const src = entries.find(e => e.uid === uid);
   if (!src) return;
   // まずフォームを完全リセットしてから払出用に設定
   clearForm();
@@ -1737,14 +1747,14 @@ function startSellFromInv(entryId) {
   document.getElementById('f_feature').value  = src.feature;
   document.getElementById('f_price').value    = '';
   document.getElementById('f_memo').value     = noLabel(src) + ' ' + src.feature.split('\n')[0];
-  document.getElementById('f_feature').dataset.srcEntryId = entryId;
+  document.getElementById('f_feature').dataset.srcEntryId = uid;
   alert('払出フォームを開きました。\n取引相手・金額・本人確認を入力して「台帳に記録する」を押してください。');
   window.scrollTo(0,0);
 }
 
 // ===== Google Apps Script 連携 =====
 // ▼▼▼ ここにデプロイしたWebアプリのURLを貼ってください ▼▼▼
-const GAS_URL = 'https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbzekRMDEyaumPcHdexcsNcT53KP9cY_V22eJDAC38d0Szr8EfvLZThe50pc4xav6Myu/exec-_byGzZBOQwkS11-T6Sv60o4qdPqk-/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzBcjqy1dh8kotuCBw20gYofXsruIAupvpd89-_byGzZBOQwkS11-T6Sv60o4qdPqk-/exec';
 // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
 async function syncToSheet() {
@@ -1782,7 +1792,13 @@ async function loadFromSheet() {
   btn.textContent = '⏳ 読み込み中…';
   try {
     const url = GAS_URL + '?action=read';
-    const resp = await fetch(url);
+    const resp = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      headers: { 'Accept': 'application/json' },
+    });
+    if (!resp.ok) throw new Error('HTTPエラー: ' + resp.status);
     const data = await resp.json();
     if (!data.entries) throw new Error('データ形式が不正です');
     if (!confirm('シートから ' + data.entries.length + ' 件を読み込みます。\n現在のデータは上書きされます。続けますか？')) {
@@ -1792,6 +1808,11 @@ async function loadFromSheet() {
     }
     entries = data.entries;
     if (data.partners) partners = data.partners;
+    // uid を補完
+    let maxUid = 0;
+    entries.forEach(e => { if (e.uid) maxUid = Math.max(maxUid, e.uid); });
+    entries.forEach(e => { if (!e.uid) { e.uid = ++maxUid; } });
+    nextUid = maxUid + 1;
     recalcCounters();
     saveEntries();
     savePartners();
@@ -1799,7 +1820,11 @@ async function loadFromSheet() {
     renderPartnerButtons();
     alert('✅ ' + entries.length + ' 件を読み込みました。');
   } catch(e) {
-    alert('❌ 読み込みエラー：' + e.message + '\n\nGASのデプロイ設定（アクセス権：全員）を確認してください。');
+    alert('❌ 読み込みエラー：' + e.message +
+      '\n\n【スマホ・別ブラウザで失敗する場合の確認手順】\n' +
+      '① GAS管理画面 → デプロイ → デプロイを管理\n' +
+      '② アクセスできるユーザー：「全員」に設定\n' +
+      '③ 新バージョンとして再デプロイし、URLを更新してください');
   }
   btn.disabled = false;
   btn.textContent = '📥 シートから読み込む';
