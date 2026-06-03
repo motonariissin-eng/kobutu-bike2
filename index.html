@@ -1224,13 +1224,24 @@ function loadAll() {
         }
       });
       // INITIAL_DATAにあってlocalStorageにないエントリを補完
-      const savedIds = new Set(entries.map(e => e.id));
+      // ※ uid があればuidで、なければ受入/払出を区別したキーで重複チェック
+      const savedKeys = new Set(entries.map(e => {
+        if (e.uid) return 'uid:' + e.uid;
+        const isIn = e.kubun && e.kubun.startsWith('受入');
+        return (isIn ? 'in:' : 'out:') + (isIn ? e.inId : e.outId);
+      }));
       INITIAL_DATA.forEach((src, i) => {
-        if (!savedIds.has(src.id)) {
-          entries.push({ ...src, inId: src.inId || (i + 1) });
+        const inId = src.inId || (i + 1);
+        const key = 'in:' + inId;
+        if (!savedKeys.has(key)) {
+          entries.push({ ...src, inId });
         }
       });
-      entries.sort((a, b) => a.id - b.id);
+      entries.sort((a, b) => {
+        const aOrd = a.createdAt ? new Date(a.createdAt).getTime() : a.id;
+        const bOrd = b.createdAt ? new Date(b.createdAt).getTime() : b.id;
+        return aOrd - bOrd;
+      });
     } catch(e) {
       entries = INITIAL_DATA.map((e, i) => ({ ...e, inId: e.inId || (i + 1) }));
     }
