@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://motonariissin-eng.github.io/kobutu-bike2/ -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -70,7 +69,6 @@
   .filter-row { display: flex; gap: 8px; margin-bottom: 10px; }
   .filter-row select { flex: 1; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 13px; padding: 8px 10px; }
   .partner-hint { font-size: 11px; color: var(--accent); margin-bottom: 8px; display: none; }
-  /* 在庫管理 */
   .inv-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 10px; }
   .inv-status-in  { border-left: 3px solid var(--success); }
   .inv-status-out { border-left: 3px solid #e08080; opacity: 0.6; }
@@ -152,10 +150,10 @@
   <div class="card">
     <div class="card-title">取引相手</div>
     <div class="partner-hint" id="partnerHint" style="display: none;">✅ 業者情報を反映しました</div>
-    <div id="partnerList" class="partner-list"><button class="partner-btn" data-pidx="0">株式会社 モトレボ 渡部伸正</button><button class="partner-btn" data-pidx="1">A's Wing 河合 善昭</button><button class="partner-btn" data-pidx="2">山崎 紅梅</button><button class="partner-btn" data-pidx="3">有限会社 川田商事</button></div>
+    <div id="partnerList" class="partner-list"></div>
     <div class="btn-row" style="margin-bottom:14px">
       <button class="btn btn-outline btn-sm" onclick="savePartner()">⭐ この業者を登録</button>
-      <button class="btn btn-danger" id="deletePartnerBtn" style="display: inline-block;" onclick="deleteCurrentPartner()">削除</button>
+      <button class="btn btn-danger" id="deletePartnerBtn" style="display: none;" onclick="deleteCurrentPartner()">削除</button>
     </div>
     <div class="form-group">
       <label>氏名・会社名 <span class="req">*</span></label>
@@ -209,828 +207,11 @@
       <option value="受入">受入</option>
       <option value="払出">払出</option>
     </select>
-    <select id="filterPartner" onchange="renderList()"><option value="">すべての相手</option><option value="A&#39;s Wing 河合 善昭">A's Wing 河合 善昭</option><option value="山崎 紅梅">山崎 紅梅</option><option value="有限会社 川田商事">有限会社 川田商事</option><option value="株式会社 モトレボ 渡部伸正">株式会社 モトレボ 渡部伸正</option></select>
+    <select id="filterPartner" onchange="renderList()"><option value="">すべての相手</option></select>
   </div>
-  <div class="count" id="countBadge">43件</div>
+  <div class="count" id="countBadge">0件</div>
   <div id="emptyState" class="empty" style="display:none">📭 該当するデータがありません</div>
-  <div id="listContainer"><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-043 · 2026-03-02</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KYMCO
-B＆W250
-RFBS7000023200265</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">
-        👤 A's Wing 河合 善昭（49歳）　埼玉県入間市豊岡５丁目３番１６号 501　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 領収書あり 在庫中
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(43)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(43)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-042 · 2026-03-02</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KIMCO
-DINK125
-RFBSH25EB8R150352</div>
-      <div class="entry-price">13,000円</div>
-      <div class="entry-meta">
-        👤 A's Wing 河合 善昭（49歳）　埼玉県入間市豊岡５丁目３番１６号 501　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 領収書あり NO.65 ジモティ3/24
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(42)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(42)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-041 · 2026-03-02</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-アドレスV125
-CF4EA-144592</div>
-      <div class="entry-price">55,000円</div>
-      <div class="entry-meta">
-        👤 A's Wing 河合 善昭（49歳）　埼玉県入間市豊岡５丁目３番１６号 501　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 領収書あり NO.88 ジモティ4/12
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(41)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(41)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-040 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ110
-JA44-1003127</div>
-      <div class="entry-price">150,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.43 メルカリ3/5
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(40)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(40)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-039 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-VOX
-SA31J-105511</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 No.57 メルカリ直接3/12
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(39)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(39)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-038 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF34-3064564</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 NO.42 ジモティ3/4
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(38)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(38)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-037 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ90
-HA02-1902001</div>
-      <div class="entry-price">70,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 NO.46 メルカリ直接3/7
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(37)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(37)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-036 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-レッツ2
-CA1PA-322065</div>
-      <div class="entry-price">15,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 NO.36 メルカリ3/2
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(36)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(36)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-035 · 2026-02-25</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF34-1207004</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 NO77 ジモティ3/31
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(35)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(35)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-034 · 2026-02-23</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-マジェスティ125
-LPRSE27109A163395</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.37 直接取引3/2
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(34)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(34)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-033 · 2026-02-23</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-マジェスティ125
-5CA-900666</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.44 メルカリ3/7
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(33)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(33)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-032 · 2026-02-21</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF56-1101189</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">
-        👤 有限会社 川田商事　埼玉県熊谷市日向250番地　古物商<br>
-        🪪 運転免許証
-        <br>📝 領収書あり NO.47 メルカリ3/7
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(32)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(32)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-031 · 2026-02-21</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-ビーノ
-SA10J-100435</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">
-        👤 有限会社 川田商事　埼玉県熊谷市日向250番地　古物商<br>
-        🪪 運転免許証
-        <br>📝 領収書あり NO.29 メルカリ2/23
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(31)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(31)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-030 · 2026-02-21</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF68-1347604</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">
-        👤 有限会社 川田商事　埼玉県熊谷市日向250番地　古物商<br>
-        🪪 運転免許証
-        <br>📝 領収書あり NO.48 ジモティ3/8
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(30)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(30)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-029 · 2026-02-20</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-グランドアクシス
-SB01J-12795</div>
-      <div class="entry-price">43,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.35 ジモティ3/1
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(29)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(29)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-028 · 2026-02-17</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-レッツ
-CA1PA-321280</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり 在庫中
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(28)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(28)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-027 · 2026-02-17</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-ビーノ
-SA10J-088136</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.53 ジモティ3/10
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(27)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(27)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-026 · 2026-02-03</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KAWASAKI
-バリオス
-ZR250A-067350</div>
-      <div class="entry-price">200,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.30 ジモティ2/25
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(26)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(26)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-025 · 2026-02-03</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-フォルツァ
-MF08-1009512</div>
-      <div class="entry-price">55,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.25 直接取引2/19
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(25)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(25)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-024 · 2026-01-31</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-レッツ
-CA4AA-107317</div>
-      <div class="entry-price">25,000円</div>
-      <div class="entry-meta">
-        👤 有限会社 川田商事　埼玉県熊谷市日向250番地　古物商<br>
-        🪪 運転免許証
-        <br>📝 領収書あり NO.23 直接取引2/11
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(24)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(24)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-023 · 2026-01-31</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-TODAY
-AF61-1527823</div>
-      <div class="entry-price">23,000円</div>
-      <div class="entry-meta">
-        👤 有限会社 川田商事　埼玉県熊谷市日向250番地　古物商<br>
-        🪪 運転免許証
-        <br>📝 領収書あり NO.40 メルカリ3/15
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(23)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(23)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-022 · 2026-01-31</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-クレアスクーピー
-AF55-1035175</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">
-        👤 有限会社 川田商事　埼玉県熊谷市日向250番地　古物商<br>
-        🪪 運転免許証
-        <br>📝 領収書あり NO.111 メルカリ5/2
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(22)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(22)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-021 · 2026-01-31</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-ビーノ
-SA10J-095636</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">
-        👤 有限会社 川田商事　埼玉県熊谷市日向250番地　古物商<br>
-        🪪 運転免許証
-        <br>📝 領収書あり 在庫中
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(21)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(21)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-020 · 2026-01-30</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-フォルツァ
-MF06-1206373</div>
-      <div class="entry-price">60,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.24 ジモティ2/16
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(20)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(20)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-019 · 2026-01-30</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-TW200
-2JL-063963</div>
-      <div class="entry-price">120,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.19 ジモティ2/29
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(19)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(19)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-018 · 2026-01-27</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">YAMAHA
-シグナスX
-SE44J-200573</div>
-      <div class="entry-price">55,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.33 ジモティ2/28
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(18)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(18)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-017 · 2026-01-27</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-クロスカブ
-JA45-1107250</div>
-      <div class="entry-price">190,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.39 ヤフオク3/16
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(17)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(17)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-016 · 2026-01-24</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-フュージョン
-MF02-2307057</div>
-      <div class="entry-price">35,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.26 ジモティ2/20
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(16)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(16)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-015 · 2026-01-23</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブカスタム50
-AA01-1760975</div>
-      <div class="entry-price">60,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.13 メルカリ1/28
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(15)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(15)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-014 · 2026-01-23</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-ZOOMER
-AF56-1206411</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.15 ジモティあんしん決済1/29
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(14)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(14)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-013 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ90
-HA02-2520567</div>
-      <div class="entry-price">70,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 ジモティ2/21
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(13)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(13)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-012 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZIKI
-バーディー50
-BA42A-106384</div>
-      <div class="entry-price">40,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 メルカリ2/22
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(12)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(12)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-011 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF34-3485249</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 メルカリ2/26
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(11)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(11)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-010 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-NAVI100
-ME4JF653JH7011290</div>
-      <div class="entry-price">80,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 NO.55 メルカリ3/12
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(10)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(10)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-009 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブプロ110
-JA07-3002778</div>
-      <div class="entry-price">70,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 NO.56 メルカリ3/12
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(9)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(9)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-008 · 2026-01-22</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-DIO
-AF34-3469086</div>
-      <div class="entry-price">17,000円</div>
-      <div class="entry-meta">
-        👤 山崎 紅梅（50歳）　埼玉県白岡市小久喜５５６番地１　古物商<br>
-        🪪 古物商同士の取引 431100033182
-        <br>📝 NO.21 ジモティ2/24
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(8)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(8)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-007 · 2026-01-18</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KAWASAKI
-スーパーシェルパ
-KL250G-009085</div>
-      <div class="entry-price">150,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.34 ヤフオク2/28
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(7)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(7)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-006 · 2026-01-18</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-パル
-AF17-1435351</div>
-      <div class="entry-price">20,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(6)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(6)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-005 · 2026-01-18</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KTM
-DUKE200
-VBKJUC401EC015907</div>
-      <div class="entry-price">85,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.74 メルカリ直接3/30
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(5)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(5)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-004 · 2026-01-12</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-アドレスV50
-CA44A-116012</div>
-      <div class="entry-price">23,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.14 ジモティあんしん決済1/29
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(4)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(4)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-003 · 2026-01-09</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">SUZUKI
-Vストローム
-LC6DS11AZ01102498</div>
-      <div class="entry-price">220,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり NO.90 ヤフオク4/13
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(3)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(3)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-002 · 2026-01-09</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">HONDA
-スーパーカブ110
-JA44-1002305</div>
-      <div class="entry-price">155,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収書あり メルカリ1/22
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(2)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(2)">削除</button>
-      </div>
-    </div><div class="entry-card" style="border-left: 3px solid var(--success);">
-      <div class="entry-header">
-        <span class="entry-no">受入-001 · 2026-01-05</span><span class="badge badge-in">受入（買受）</span>
-      </div>
-      <div class="entry-category">自動二輪車 × 1</div>
-      <div class="entry-feature">KAWASAKI
-KZ650
-KZ650-027431</div>
-      <div class="entry-price">660,000円</div>
-      <div class="entry-meta">
-        👤 株式会社 モトレボ 渡部伸正　埼玉県所沢市中富280-3　古物商<br>
-        🪪 古物商同士の取引
-        <br>📝 領収証あり NO.38 ヤフオク3/10
-        
-      </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-        <button class="btn btn-outline btn-sm" onclick="editEntry(1)">✏ 訂正</button>
-        <button class="btn btn-danger" onclick="deleteEntry(1)">削除</button>
-      </div>
-    </div></div>
+  <div id="listContainer"></div>
 </div>
 
 <!-- 在庫管理 -->
@@ -1111,83 +292,24 @@ KZ650-027431</div>
 
 <!-- ボトムタブ -->
 <div class="bottom-tab">
-  <button class="tab-btn active" id="tbtn-entry" onclick="switchTab(&#39;entry&#39;)">
+  <button class="tab-btn active" id="tbtn-entry" onclick="switchTab('entry')">
     <span class="icon">✏️</span>新規登録
   </button>
-  <button class="tab-btn" id="tbtn-list" onclick="switchTab(&#39;list&#39;)">
+  <button class="tab-btn" id="tbtn-list" onclick="switchTab('list')">
     <span class="icon">📋</span>台帳一覧
   </button>
-  <button class="tab-btn" id="tbtn-inv" onclick="switchTab(&#39;inv&#39;)">
+  <button class="tab-btn" id="tbtn-inv" onclick="switchTab('inv')">
     <span class="icon">📦</span>在庫管理
   </button>
-  <button class="tab-btn" id="tbtn-data" onclick="switchTab(&#39;data&#39;)">
+  <button class="tab-btn" id="tbtn-data" onclick="switchTab('data')">
     <span class="icon">💾</span>データ
   </button>
-  <button class="tab-btn" id="tbtn-guide" onclick="switchTab(&#39;guide&#39;)">
+  <button class="tab-btn" id="tbtn-guide" onclick="switchTab('guide')">
     <span class="icon">📖</span>記載要件
   </button>
 </div>
 
 <script>
-// ===== CSVより生成した初期データ（2026-05-28版） =====
-const INITIAL_DATA = [
-  {id:1,date:'2026-01-05',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'KAWASAKI\nKZ650\nKZ650-027431',price:'660000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収証あり NO.38 ヤフオク3/10',createdAt:'2026-05-23T05:32:27.000Z'},
-  {id:2,date:'2026-01-09',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nスーパーカブ110\nJA44-1002305',price:'155000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり メルカリ1/22',createdAt:'2026-05-23T05:34:17.000Z'},
-  {id:3,date:'2026-01-09',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'SUZUKI\nVストローム\nLC6DS11AZ01102498',price:'220000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.90 ヤフオク4/13',createdAt:'2026-05-23T05:37:46.000Z'},
-  {id:4,date:'2026-01-12',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'SUZUKI\nアドレスV50\nCA44A-116012',price:'23000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.14 ジモティあんしん決済1/29',createdAt:'2026-05-24T04:46:05.000Z'},
-  {id:5,date:'2026-01-18',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'KTM\nDUKE200\nVBKJUC401EC015907',price:'85000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.74 メルカリ直接3/30',createdAt:'2026-05-24T08:38:44.000Z'},
-  {id:6,date:'2026-01-18',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nパル\nAF17-1435351',price:'20000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-05-24T08:40:06.000Z'},
-  {id:7,date:'2026-01-18',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'KAWASAKI\nスーパーシェルパ\nKL250G-009085',price:'150000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.34 ヤフオク2/28',createdAt:'2026-05-24T08:42:23.000Z'},
-  {id:8,date:'2026-01-22',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nDIO\nAF34-3469086',price:'17000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'NO.21 ジモティ2/24',createdAt:'2026-05-24T08:43:58.000Z'},
-  {id:9,date:'2026-01-22',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nスーパーカブプロ110\nJA07-3002778',price:'70000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'NO.56 メルカリ3/12',createdAt:'2026-05-24T08:46:25.000Z'},
-  {id:10,date:'2026-01-22',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nNAVI100\nME4JF653JH7011290',price:'80000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'NO.55 メルカリ3/12',createdAt:'2026-05-24T08:48:38.000Z'},
-  {id:11,date:'2026-01-22',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nDIO\nAF34-3485249',price:'20000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'メルカリ2/26',createdAt:'2026-05-25T00:42:17.000Z'},
-  {id:12,date:'2026-01-22',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'SUZIKI\nバーディー50\nBA42A-106384',price:'40000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'メルカリ2/22',createdAt:'2026-05-25T00:45:37.000Z'},
-  {id:13,date:'2026-01-22',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nスーパーカブ90\nHA02-2520567',price:'70000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'ジモティ2/21',createdAt:'2026-05-25T00:47:32.000Z'},
-  {id:14,date:'2026-01-23',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nZOOMER\nAF56-1206411',price:'40000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.15 ジモティあんしん決済1/29',createdAt:'2026-05-25T00:54:09.000Z'},
-  {id:15,date:'2026-01-23',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nスーパーカブカスタム50\nAA01-1760975',price:'60000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.13 メルカリ1/28',createdAt:'2026-05-25T00:57:19.000Z'},
-  {id:16,date:'2026-01-24',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nフュージョン\nMF02-2307057',price:'35000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.26 ジモティ2/20',createdAt:'2026-05-25T00:59:47.000Z'},
-  {id:17,date:'2026-01-27',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nクロスカブ\nJA45-1107250',price:'190000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.39 ヤフオク3/16',createdAt:'2026-05-25T01:05:33.000Z'},
-  {id:18,date:'2026-01-27',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nシグナスX\nSE44J-200573',price:'55000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.33 ジモティ2/28',createdAt:'2026-05-25T01:07:50.000Z'},
-  {id:19,date:'2026-01-30',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nTW200\n2JL-063963',price:'120000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.19 ジモティ2/29',createdAt:'2026-05-25T01:10:08.000Z'},
-  {id:20,date:'2026-01-30',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nフォルツァ\nMF06-1206373',price:'60000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.24 ジモティ2/16',createdAt:'2026-05-25T01:12:39.000Z'},
-  {id:21,date:'2026-01-31',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nビーノ\nSA10J-095636',price:'35000',idMethod:'運転免許証',idNo:'',name:'有限会社 川田商事',age:'',address:'埼玉県熊谷市日向250番地',job:'古物商',memo:'領収書あり 在庫中',createdAt:'2026-05-25T01:15:17.000Z'},
-  {id:22,date:'2026-01-31',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nクレアスクーピー\nAF55-1035175',price:'40000',idMethod:'運転免許証',idNo:'',name:'有限会社 川田商事',age:'',address:'埼玉県熊谷市日向250番地',job:'古物商',memo:'領収書あり NO.111 メルカリ5/2',createdAt:'2026-05-25T01:17:27.000Z'},
-  {id:23,date:'2026-01-31',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nTODAY\nAF61-1527823',price:'23000',idMethod:'運転免許証',idNo:'',name:'有限会社 川田商事',age:'',address:'埼玉県熊谷市日向250番地',job:'古物商',memo:'領収書あり NO.40 メルカリ3/15',createdAt:'2026-05-25T01:18:53.000Z'},
-  {id:24,date:'2026-01-31',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'SUZUKI\nレッツ\nCA4AA-107317',price:'25000',idMethod:'運転免許証',idNo:'',name:'有限会社 川田商事',age:'',address:'埼玉県熊谷市日向250番地',job:'古物商',memo:'領収書あり NO.23 直接取引2/11',createdAt:'2026-05-25T01:21:22.000Z'},
-  {id:25,date:'2026-02-03',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nフォルツァ\nMF08-1009512',price:'55000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.25 直接取引2/19',createdAt:'2026-05-26T12:29:27.000Z'},
-  {id:26,date:'2026-02-03',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'KAWASAKI\nバリオス\nZR250A-067350',price:'200000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.30 ジモティ2/25',createdAt:'2026-05-26T12:31:09.000Z'},
-  {id:27,date:'2026-02-17',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nビーノ\nSA10J-088136',price:'20000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.53 ジモティ3/10',createdAt:'2026-05-26T12:33:06.000Z'},
-  {id:28,date:'2026-02-17',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'SUZUKI\nレッツ\nCA1PA-321280',price:'20000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり 在庫中',createdAt:'2026-05-26T12:44:23.000Z'},
-  {id:29,date:'2026-02-20',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nグランドアクシス\nSB01J-12795',price:'43000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.35 ジモティ3/1',createdAt:'2026-05-26T12:47:00.000Z'},
-  {id:30,date:'2026-02-21',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nDIO\nAF68-1347604',price:'35000',idMethod:'運転免許証',idNo:'',name:'有限会社 川田商事',age:'',address:'埼玉県熊谷市日向250番地',job:'古物商',memo:'領収書あり NO.48 ジモティ3/8',createdAt:'2026-05-26T12:48:45.000Z'},
-  {id:31,date:'2026-02-21',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nビーノ\nSA10J-100435',price:'40000',idMethod:'運転免許証',idNo:'',name:'有限会社 川田商事',age:'',address:'埼玉県熊谷市日向250番地',job:'古物商',memo:'領収書あり NO.29 メルカリ2/23',createdAt:'2026-05-28T05:50:16.000Z'},
-  {id:32,date:'2026-02-21',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nDIO\nAF56-1101189',price:'35000',idMethod:'運転免許証',idNo:'',name:'有限会社 川田商事',age:'',address:'埼玉県熊谷市日向250番地',job:'古物商',memo:'領収書あり NO.47 メルカリ3/7',createdAt:'2026-05-28T05:52:17.000Z'},
-  {id:33,date:'2026-02-23',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nマジェスティ125\n5CA-900666',price:'40000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.44 メルカリ3/7',createdAt:'2026-05-28T05:54:06.000Z'},
-  {id:34,date:'2026-02-23',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nマジェスティ125\nLPRSE27109A163395',price:'40000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.37 直接取引3/2',createdAt:'2026-05-28T05:55:56.000Z'},
-  {id:35,date:'2026-02-25',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nDIO\nAF34-1207004',price:'20000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'NO77 ジモティ3/31',createdAt:'2026-05-28T05:57:32.000Z'},
-  {id:36,date:'2026-02-25',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'SUZUKI\nレッツ2\nCA1PA-322065',price:'15000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'NO.36 メルカリ3/2',createdAt:'2026-05-28T05:59:28.000Z'},
-  {id:37,date:'2026-02-25',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nスーパーカブ90\nHA02-1902001',price:'70000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'NO.46 メルカリ直接3/7',createdAt:'2026-05-28T06:01:39.000Z'},
-  {id:38,date:'2026-02-25',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nDIO\nAF34-3064564',price:'20000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'NO.42 ジモティ3/4',createdAt:'2026-05-28T06:05:00.000Z'},
-  {id:39,date:'2026-02-25',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nVOX\nSA31J-105511',price:'35000',idMethod:'古物商同士の取引',idNo:'431100033182',name:'山崎 紅梅',age:'50',address:'埼玉県白岡市小久喜５５６番地１',job:'古物商',memo:'No.57 メルカリ直接3/12',createdAt:'2026-05-28T06:06:53.000Z'},
-  {id:40,date:'2026-02-25',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nスーパーカブ110\nJA44-1003127',price:'150000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'領収書あり NO.43 メルカリ3/5',createdAt:'2026-05-28T06:08:22.000Z'},
-  {id:41,date:'2026-03-02',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'SUZUKI\nアドレスV125\nCF4EA-144592',price:'55000',idMethod:'古物商同士の取引',idNo:'431100033182',name:"A's Wing 河合 善昭",age:'49',address:'埼玉県入間市豊岡５丁目３番１６号 501',job:'古物商',memo:'領収書あり NO.88 ジモティ4/12',createdAt:'2026-05-28T06:23:46.000Z'},
-  {id:42,date:'2026-03-02',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'KIMCO\nDINK125\nRFBSH25EB8R150352',price:'13000',idMethod:'古物商同士の取引',idNo:'431100033182',name:"A's Wing 河合 善昭",age:'49',address:'埼玉県入間市豊岡５丁目３番１６号 501',job:'古物商',memo:'領収書あり NO.65 ジモティ3/24',createdAt:'2026-05-28T06:26:17.000Z'},
-  {id:43,date:'2026-03-02',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'KYMCO\nB＆W250\nRFBS7000023200265',price:'20000',idMethod:'古物商同士の取引',idNo:'431100033182',name:"A's Wing 河合 善昭",age:'49',address:'埼玉県入間市豊岡５丁目３番１６号 501',job:'古物商',memo:'領収書あり 在庫中',createdAt:'2026-05-28T06:28:11.000Z'},
-  {id:44,date:'2026-03-02',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'SUZIKI\nスカイウェイブ250\nCJ41A-106446',price:'12000',idMethod:'古物商同士の取引',idNo:'431100033182',name:"A's Wing 河合 善昭",age:'49',address:'埼玉県入間市豊岡５丁目３番１６号 501',job:'古物商',memo:'',createdAt:'2026-06-01T00:00:00.000Z'},
-  {id:45,date:'2026-03-05',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nスーパーカブ110\nJA10-1007683',price:'135000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-06-01T00:01:00.000Z'},
-  {id:46,date:'2026-03-05',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nZOOMER\nAF58-1018787',price:'55000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-06-01T00:02:00.000Z'},
-  {id:47,date:'2026-03-05',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nマジェスティ125\nLPRSE27109A160821',price:'40000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-06-01T00:03:00.000Z'},
-  {id:48,date:'2026-03-05',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nマジェスティ125\nLPRKE03001A600183',price:'30000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-06-01T00:04:00.000Z'},
-  {id:49,date:'2026-03-10',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nFZR150\nME1RG7321P0033629',price:'160000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-06-01T00:05:00.000Z'},
-  {id:50,date:'2026-03-10',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'HONDA\nスーパーカブ90\nHA02-2701971',price:'125000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-06-01T00:06:00.000Z'},
-  {id:51,date:'2026-03-10',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'KAWASAKI\nKSR110\nKL110A-000953',price:'120000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-06-01T00:07:00.000Z'},
-  {id:52,date:'2026-03-12',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nトリシティ125\nSE82J-006915',price:'90000',idMethod:'古物商同士の取引',idNo:'431100033182',name:"A's Wing 河合 善昭",age:'49',address:'埼玉県入間市豊岡５丁目３番１６号 501',job:'古物商',memo:'',createdAt:'2026-06-01T00:08:00.000Z'},
-  {id:53,date:'2026-03-13',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'YAMAHA\nマジェスティ125\nLPRKE03001A600183',price:'45000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-06-01T00:09:00.000Z'},
-  {id:54,date:'2026-03-13',kubun:'受入（買受）',category:'自動二輪車',qty:'1',feature:'SUZUKI\nアドレスV50\nCA44A-130488',price:'30000',idMethod:'古物商同士の取引',idNo:'',name:'株式会社 モトレボ 渡部伸正',age:'',address:'埼玉県所沢市中富280-3',job:'古物商',memo:'',createdAt:'2026-06-01T00:10:00.000Z'},
-  {id:55,date:'2026-03-10',kubun:'払出（売却）',category:'自動二輪車',qty:'1',feature:'KAWASAKI\nKZ650\nKZ650-027431',price:'915100',idMethod:'その他',idNo:'',name:'ヤフオク 倉持正人',age:'',address:'茨城県つくば市高見原1-3-140',job:'',memo:'受入-001 KAWASAKI',outId:1,soldEntryId:1,createdAt:'2026-06-01T00:11:00.000Z'},
-];
-
 // ===== デフォルト業者マスタ（全フィールド完備）=====
 const DEFAULT_PARTNERS = [
   {name:'株式会社 モトレボ 渡部伸正', age:'', address:'埼玉県所沢市中富280-3', job:'古物商', idMethod:'古物商同士の取引', idNo:''},
@@ -1216,7 +338,7 @@ const LS_PARTNERS = 'kobutsu_partners';
 const LS_COUNTERS = 'kobutsu_counters';
 
 function loadAll() {
-  // entries: localStorageがあればそちら優先、なければINITIAL_DATAで初期化
+  // entries: localStorageのみ参照。なければ空で起動。
   const saved = localStorage.getItem(LS_ENTRIES);
   if (saved) {
     try {
@@ -1241,10 +363,10 @@ function loadAll() {
         return aOrd - bOrd;
       });
     } catch(e) {
-      entries = INITIAL_DATA.map((e, i) => ({ ...e, inId: e.inId || (i + 1) }));
+      entries = [];
     }
   } else {
-    entries = INITIAL_DATA.map((e, i) => ({ ...e, inId: e.inId || (i + 1) }));
+    entries = [];
   }
 
   // uid がないエントリに一意IDを付与（旧データ移行）
@@ -1299,7 +421,7 @@ function switchTab(name) {
   if (name === 'inv')  renderInventory();
 }
 
-// ===== 業者ボタン（改善：クリックで全フィールド自動入力）=====
+// ===== 業者ボタン =====
 function renderPartnerButtons() {
   const wrap = document.getElementById('partnerList');
   if (!partners.length) {
@@ -1311,7 +433,6 @@ function renderPartnerButtons() {
     const isActive = activePartner === p.name;
     return `<button class="partner-btn${isActive ? ' active' : ''}" data-pidx="${i}">${esc(p.name)}</button>`;
   }).join('');
-  // イベントをまとめて委譲（onclickのクォート問題を回避）
   wrap.querySelectorAll('.partner-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       applyPartner(partners[parseInt(this.dataset.pidx)].name);
@@ -1328,7 +449,6 @@ function buildPartnerFilter() {
     names.map(n => `<option value="${esc(n)}"${n===cur?' selected':''}>${esc(n)}</option>`).join('');
 }
 
-// 業者ボタン押下 → 氏名・年齢・住所・職業・確認方法・確認番号を一括反映
 function applyPartner(name) {
   const p = partners.find(x => x.name === name);
   if (!p) return;
@@ -1340,7 +460,6 @@ function applyPartner(name) {
   document.getElementById('f_id_no').value      = p.idNo     || '';
   activePartner = name;
   document.getElementById('deletePartnerBtn').style.display = 'inline-block';
-  // ヒント表示
   const hint = document.getElementById('partnerHint');
   hint.style.display = 'block';
   clearTimeout(hint._timer);
@@ -1500,7 +619,6 @@ function renderList() {
   if (!filtered.length) { container.innerHTML = ''; empty.style.display = 'block'; return; }
   empty.style.display = 'none';
 
-  // 払出済みの受入IDセットを作成
   const soldInIds = new Set(
     entries.filter(e => e.kubun.startsWith('払出') && e.soldEntryId).map(e => e.soldEntryId)
   );
@@ -1672,10 +790,6 @@ function esc(str) {
 }
 
 // ===== 在庫管理 =====
-// 在庫ロジック：受入エントリのうち、払出エントリの memo に同じ車体番号が含まれるものを「払出済」と判定
-// より確実な方法として soldEntryId フィールドで紐付け管理
-// 在庫 = 受入 & soldEntryId が未設定
-
 function getStockEntries() {
   const inEntries  = entries.filter(e => e.kubun.startsWith('受入'));
   const outEntries = entries.filter(e => e.kubun.startsWith('払出'));
@@ -1749,7 +863,6 @@ function renderInventory() {
 function startSellFromInv(uid) {
   const src = entries.find(e => e.uid === uid);
   if (!src) return;
-  // まずフォームを完全リセットしてから払出用に設定
   clearForm();
   switchTab('entry');
   document.getElementById('f_kubun').value    = '払出（売却）';
@@ -1765,9 +878,7 @@ function startSellFromInv(uid) {
 }
 
 // ===== Google Apps Script 連携 =====
-// ▼▼▼ ここにデプロイしたWebアプリのURLを貼ってください ▼▼▼
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbyq_MqD2A3a1cRXZxxqcv3GDfQdQ_ybmPRZH_DFbwo88Dr7UU0gE9OIIH8X2wFkdlib/exec';
-// ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
 async function syncToSheet() {
   if (!GAS_URL) {
@@ -1819,7 +930,6 @@ async function loadFromSheet() {
     }
     entries = data.entries;
     if (data.partners) partners = data.partners;
-    // uid を補完
     let maxUid = 0;
     entries.forEach(e => { if (e.uid) maxUid = Math.max(maxUid, e.uid); });
     entries.forEach(e => { if (!e.uid) { e.uid = ++maxUid; } });
@@ -1846,9 +956,7 @@ loadAll();
 document.getElementById('f_date').value = todayJST();
 renderPartnerButtons();
 renderList();
-// 在庫サマリーを起動時にも更新
 renderInventory();
 </script>
-
 
 </body></html>
