@@ -114,7 +114,7 @@
     </div>
     <div class="form-group">
       <label>区分 <span class="req">*</span></label>
-      <select id="f_kubun">
+      <select id="f_kubun" onchange="onKubunChange()">
         <option value="受入（買受）">受入（買受）</option>
         <option value="受入（委託）">受入（委託）</option>
         <option value="払出（売却）">払出（売却）</option>
@@ -145,6 +145,12 @@
     <div class="form-group">
       <label>取引金額（円）</label>
       <input type="text" inputmode="numeric" pattern="[0-9]*" id="f_price" placeholder="0">
+    </div>
+    <div class="form-group" id="breakdownGroup" style="display:none;">
+      <label>作業の内訳（売却金額の内訳・合計が取引金額に反映されます）</label>
+      <div id="breakdownRows"></div>
+      <button type="button" class="btn btn-outline btn-sm" onclick="addBreakdownRow()" style="margin-top:6px;">＋ 内訳行を追加</button>
+      <div style="margin-top:8px;font-size:13px;color:var(--muted);">内訳合計：<span id="breakdownTotal">0</span> 円</div>
     </div>
   </div>
 
@@ -1336,6 +1342,8 @@ function editEntry(uid) {
   document.getElementById('f_address').value    = e.address  || '';
   document.getElementById('f_job').value        = e.job      || '';
   document.getElementById('f_memo').value       = e.memo     || '';
+  onKubunChange();
+  setBreakdownRows(e.breakdown || []);
   document.getElementById('saveBtn').textContent = '✅ ' + noLabel(e) + ' を上書き保存';
   document.getElementById('cancelEditBtn').style.display = 'inline-block';
   switchTab('entry');
@@ -1369,6 +1377,7 @@ function saveEntry() {
     address:  document.getElementById('f_address').value.trim(),
     job:      document.getElementById('f_job').value.trim(),
     memo:     document.getElementById('f_memo').value.trim(),
+    breakdown: getBreakdownRows(),
     soldEntryId: document.getElementById('f_feature').dataset.srcEntryId
       ? parseInt(document.getElementById('f_feature').dataset.srcEntryId) : undefined,
   };
@@ -1399,7 +1408,55 @@ function saveEntry() {
   }
 }
 
+// ===== 作業の内訳（払出（売却）専用） =====
+function onKubunChange() {
+  const kubun = document.getElementById('f_kubun').value;
+  const group = document.getElementById('breakdownGroup');
+  group.style.display = (kubun === '払出（売却）') ? 'block' : 'none';
+}
+
+function addBreakdownRow(name, amount) {
+  const rows = document.getElementById('breakdownRows');
+  const row = document.createElement('div');
+  row.className = 'breakdown-row';
+  row.style.cssText = 'display:flex;gap:8px;margin-bottom:8px;align-items:center;';
+  row.innerHTML =
+    '<input type="text" placeholder="例：パーツ代、工賃など" class="bd-name" style="flex:2;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;padding:8px 10px;font-family:inherit;">' +
+    '<input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="金額" class="bd-amount" style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;padding:8px 10px;font-family:inherit;">' +
+    '<button type="button" class="btn btn-danger" onclick="this.parentElement.remove();recalcBreakdownTotal();">✕</button>';
+  rows.appendChild(row);
+  if (name !== undefined) row.querySelector('.bd-name').value = name;
+  if (amount !== undefined) row.querySelector('.bd-amount').value = amount;
+  row.querySelector('.bd-amount').addEventListener('input', recalcBreakdownTotal);
+  recalcBreakdownTotal();
+}
+
+function recalcBreakdownTotal() {
+  const amounts = Array.from(document.querySelectorAll('#breakdownRows .bd-amount'))
+    .map(el => Number(el.value) || 0);
+  const total = amounts.reduce((a,b) => a+b, 0);
+  document.getElementById('breakdownTotal').textContent = total.toLocaleString();
+  if (amounts.length) {
+    document.getElementById('f_price').value = total;
+  }
+}
+
+function getBreakdownRows() {
+  return Array.from(document.querySelectorAll('#breakdownRows .breakdown-row')).map(row => ({
+    name:   row.querySelector('.bd-name').value.trim(),
+    amount: row.querySelector('.bd-amount').value
+  })).filter(r => r.name || r.amount);
+}
+
+function setBreakdownRows(list) {
+  document.getElementById('breakdownRows').innerHTML = '';
+  (list || []).forEach(r => addBreakdownRow(r.name, r.amount));
+  if (!list || !list.length) recalcBreakdownTotal();
+}
+
 function clearForm() {
+
+
   ['f_feature','f_price','f_id_no','f_name','f_age','f_address','f_job','f_memo'].forEach(id => {
     document.getElementById(id).value = '';
   });
@@ -1407,6 +1464,8 @@ function clearForm() {
   document.getElementById('f_qty').value = '1';
   document.getElementById('f_date').value = todayJST();
   document.getElementById('f_kubun').value = '受入（買受）';
+  setBreakdownRows([]);
+  onKubunChange();
   document.getElementById('f_category').value = '自動二輪車';
   document.getElementById('f_id_method').value = '運転免許証';
   activePartner = null; editingId = null;
