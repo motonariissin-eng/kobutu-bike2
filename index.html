@@ -386,7 +386,16 @@ function loadAll() {
   const csvInOnly = csvIn.filter(e => !savedInUids.has(e.uid));
 
   // localStorageにある払出でCSVにないもの（手動登録）も保持
-  const manualOut = savedEntries.filter(e => e.kubun && e.kubun.startsWith('払出') && !csvOutUids.has(e.uid));
+  // ただし、CSV側に同じsoldEntryId（同じ受入を売却したレコード）が既にある場合は重複として除外
+  const csvOutSoldIds = new Set(
+    csvOut.filter(e => e.soldEntryId != null && e.soldEntryId !== '').map(e => Number(e.soldEntryId))
+  );
+  const manualOut = savedEntries.filter(e => {
+    if (!e.kubun || !e.kubun.startsWith('払出')) return false;
+    if (csvOutUids.has(e.uid)) return false;
+    if (e.soldEntryId != null && e.soldEntryId !== '' && csvOutSoldIds.has(Number(e.soldEntryId))) return false;
+    return true;
+  });
 
   entries = [...savedIn, ...csvInOnly, ...csvOut, ...manualOut];
 
