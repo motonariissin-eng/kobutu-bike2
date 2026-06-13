@@ -714,7 +714,15 @@ function renderList() {
     if (fKubun   && !e.kubun.startsWith(fKubun)) return false;
     if (fPartner && e.name !== fPartner) return false;
     return true;
-  }).slice().reverse();
+  }).slice().sort((a, b) => {
+    const aD = a.date ? new Date(a.date).getTime() : 0;
+    const bD = b.date ? new Date(b.date).getTime() : 0;
+    if (bD !== aD) return bD - aD; // 日付の新しい順
+    // 同日の場合は登録日時で安定ソート
+    const aC = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+    const bC = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+    return bC - aC;
+  });
 
   document.getElementById('countBadge').textContent = filtered.length + '件';
   const container = document.getElementById('listContainer');
