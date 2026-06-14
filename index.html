@@ -433,16 +433,8 @@ function loadAll() {
     partners = DEFAULT_PARTNERS.map(p => ({...p}));
   }
 
-  const savedC = localStorage.getItem(LS_COUNTERS);
-  if (savedC) {
-    try {
-      const c = JSON.parse(savedC);
-      nextInId  = c.nextInId  || 146;
-      nextOutId = c.nextOutId || 102;
-    } catch(e) { recalcCounters(); }
-  } else {
-    recalcCounters();
-  }
+  // カウンターは常にentriesから再計算（保存値の誤りによる重複を防ぐ）
+  recalcCounters();
 }
 
 function recalcCounters() {
@@ -812,9 +804,9 @@ function clearAllEntries() {
 // ===== CSV 出力 =====
 function exportCSV() {
   if (!entries.length) { alert('データがありません'); return; }
-  const h = ['台帳No','年月日','区分','品目','数量','特徴','金額','確認方法','確認番号','氏名','年齢','住所','職業','備考','登録日時'];
+  const h = ['台帳No','年月日','区分','品目','数量','特徴','金額','確認方法','確認番号','氏名','年齢','住所','職業','備考','登録日時','uid','soldEntryId'];
   const rows = entries.map(e =>
-    [noLabel(e),e.date,e.kubun,e.category,e.qty,e.feature,e.price,e.idMethod,e.idNo,e.name,e.age,e.address,e.job,e.memo,e.createdAt]
+    [noLabel(e),e.date,e.kubun,e.category,e.qty,e.feature,e.price,e.idMethod,e.idNo,e.name,e.age,e.address,e.job,e.memo,e.createdAt,e.uid,e.soldEntryId]
     .map(v => '"'+String(v||'').replace(/"/g,'""')+'"').join(',')
   );
   const csv  = '\uFEFF' + [h.join(','), ...rows].join('\r\n');
